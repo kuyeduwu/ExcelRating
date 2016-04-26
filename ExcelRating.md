@@ -39,6 +39,7 @@ Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean
             Cells(r, ca).Replace "★", "☆"
             ca = ca + 1
         Loop Until Cells(r, ca) <> "☆" And Cells(r, ca) <> "★"
+        '取消系统默认的双击效果。
         Cancel = True
     End If
 End Sub
