@@ -45,3 +45,5 @@ Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean
 End Sub
 
 ```
+
+[下载示例文件](http://pan.baidu.com/s/1cBMzqm)
