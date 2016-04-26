@@ -18,9 +18,15 @@
 * 某组星星，一旦进行了评级操作，则最低评级为一星，如果要恢复为未评级之前的状态，需要手动将星星替换。
 
 ```vb
-Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean)
+'coded by: kuyeduwu
+'coded on: 04/26/16
+'website: http://www.myslsh.com
+'GitHub: https://github.com/kuyeduwu/ExcelRating
+
+Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean) '由Excel的双击事件触发代码
 
     If Target.Text = "☆" Or Target.Text = "★" Then
+        '如果当前双击的内容是五角星，则将当前双击位置以及之前的五角星全部改为实心。
         Let r = Target.Row
         Let cb = Target.Column
         Let ca = Target.Column + 1
@@ -28,7 +34,7 @@ Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean
             Cells(r, cb).Replace "☆", "★"
             cb = cb - 1
         Loop Until Cells(r, cb) <> "☆" And Cells(r, cb) <> "★"
-        
+        '将当前双击位置之后的五角星全部换成空心。
         Do
             Cells(r, ca).Replace "★", "☆"
             ca = ca + 1
